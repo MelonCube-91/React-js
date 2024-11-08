@@ -1,9 +1,8 @@
-// UpdateArticle.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 function UpdateArticle() {
-  const { idArticle } = useParams(); // Récupère l'ID de l'article depuis l'URL
+  const { idArticle } = useParams(); 
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -16,7 +15,6 @@ function UpdateArticle() {
   });
   const [message, setMessage] = useState('');
 
-  // Récupère les informations actuelles de l'article
   useEffect(() => {
     const fetchArticle = async () => {
       try {
@@ -34,7 +32,6 @@ function UpdateArticle() {
     fetchArticle();
   }, [idArticle]);
 
-  // Gère les changements de champ de formulaire
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
@@ -43,7 +40,6 @@ function UpdateArticle() {
     }));
   };
 
-  // Gère les changements pour les images dans le tableau picture
   const handlePictureChange = (e, imgField) => {
     const { value } = e.target;
     setFormData((prevData) => ({
@@ -52,7 +48,6 @@ function UpdateArticle() {
     }));
   };
 
-  // Soumet le formulaire pour mettre à jour l'article
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

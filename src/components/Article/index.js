@@ -1,11 +1,9 @@
-// Article.js
 import React, { useEffect, useState } from 'react';
 
 function Article() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Récupère les articles au chargement du composant
   useEffect(() => {
     const fetchArticles = async () => {
       try {

@@ -1,4 +1,3 @@
-// AddArticle.js
 import React, { useState } from 'react';
 
 function AddArticle() {
@@ -14,7 +13,6 @@ function AddArticle() {
   });
   const [message, setMessage] = useState('');
 
-  // Gère les changements de champ de formulaire
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
@@ -23,7 +21,6 @@ function AddArticle() {
     }));
   };
 
-  // Gère les changements pour les images dans le tableau picture
   const handlePictureChange = (e, imgField) => {
     const { value } = e.target;
     setFormData((prevData) => ({
@@ -32,7 +29,6 @@ function AddArticle() {
     }));
   };
 
-  // Soumet le formulaire
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

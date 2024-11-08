@@ -1,14 +1,12 @@
-// ArticleDetails.js
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 function ArticleDetails() {
-  const { idArticle } = useParams(); // Récupère l'ID de l'article depuis l'URL
+  const { idArticle } = useParams(); 
   const navigate = useNavigate();
   const [article, setArticle] = useState(null);
   const [message, setMessage] = useState('');
 
-  // Récupère les informations de l'article pour affichage
   useEffect(() => {
     const fetchArticle = async () => {
       try {
@@ -27,7 +25,6 @@ function ArticleDetails() {
     fetchArticle();
   }, [idArticle]);
 
-  // Fonction de suppression de l'article
   const deleteArticle = async () => {
     try {
       const response = await fetch(`http://localhost:8000/api/article/delete/${idArticle}`, {
@@ -40,7 +37,7 @@ function ArticleDetails() {
 
       setMessage('Article supprimé avec succès !');
       setTimeout(() => {
-        navigate('/'); // Redirige vers la page principale après suppression
+        navigate('/');
       }, 2000);
     } catch (error) {
       console.error(error);
